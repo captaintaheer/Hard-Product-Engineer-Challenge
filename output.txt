@@ -1,13 +1,18 @@
-PitGPT API — Example outputs (built-in telemetry)
-Run: node --experimental-strip-types Challenge.ts --print-output
+PitGPT API — Example outputs (server at http://localhost:3000)
 
-=== POST /ingest (or GET /seed) ===
+curl -X POST http://localhost:3000/ingest -H "Content-Type: application/json" -d @telemetry.json
 {
   "laps": 5,
   "frames": 166
 }
 
-=== GET /laps ===
+curl http://localhost:3000/seed
+{
+  "laps": 5,
+  "frames": 166
+}
+
+curl http://localhost:3000/laps
 [
   {
     "lapNumber": 1,
@@ -71,7 +76,7 @@ Run: node --experimental-strip-types Challenge.ts --print-output
   }
 ]
 
-=== GET /analysis ===
+curl http://localhost:3000/analysis
 {
   "bestLap": {
     "lapNumber": 2,
